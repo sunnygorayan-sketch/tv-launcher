@@ -63,7 +63,7 @@ class MainActivity : ComponentActivity() {
             .filter { it.activityInfo.packageName != packageName }
         apps.value = list.map { ri ->
             val ai = ri.activityInfo
-            val banner = ri.loadBanner(pm) ?: ai.applicationInfo.loadBanner(pm)
+            val banner = ai.loadBanner(pm) ?: ai.applicationInfo.loadBanner(pm)
             val d = banner ?: ri.loadIcon(pm)
             AppItem(
                 ai.packageName, ri.loadLabel(pm).toString(),
